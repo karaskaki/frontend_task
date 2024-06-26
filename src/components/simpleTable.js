@@ -1,20 +1,29 @@
-import { React } from "react";
+import React from "react";
+import { Table } from "antd";
 
 const SimpleTable = ({ dataSource }) => {
+  const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
+  ];
+
   return (
-    <div>
+    <div className="data">
       {dataSource.length ? (
-        <>
-          {dataSource.map((item, index) => {
-            return (
-              <div key={index}>
-                <div>Id: {item.id}</div>
-                <div>Name: {item.name}</div>
-                <div>Email: {item.email}</div>
-              </div>
-            );
-          })}
-        </>
+        <Table dataSource={dataSource} columns={columns} rowKey="id" />
       ) : (
         "No user data"
       )}

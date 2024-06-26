@@ -8,6 +8,7 @@ function MainComponent(props) {
   const handleSubmit = ({ name, email }) => {
     addUser({ name, email });
   };
+
   useEffect(() => {
     getUsers();
   }, []);
